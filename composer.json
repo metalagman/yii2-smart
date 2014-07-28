@@ -1,0 +1,22 @@
+{
+    "name": "lagman/yii2-smart",
+    "description": "Collection of smart extensions for base Yii2 components",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Alexey Samoylov",
+            "email": "alexey.samoylov@gmail.com",
+            "homepage": "http://yiiblog.ru",
+            "role": "Developer"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php":">=5.4.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "lagman\\yii\\smart\\": "./",
+        }
+    }
+}
