@@ -16,7 +16,7 @@
     },
     "autoload": {
         "psr-4": {
-            "lagman\\yii\\smart\\": "./"
+            "lagman\\smart\\": "./"
         }
     }
 }

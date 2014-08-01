@@ -3,7 +3,7 @@
  * @author Alexey Samoylov <alexey.samoylov@gmail.com>
  */
 
-namespace lagman\yii\smart;
+namespace lagman\smart;
 
 use \yii\db\ActiveRecord as BaseActiveRecord;
 use yii\web\NotFoundHttpException;
