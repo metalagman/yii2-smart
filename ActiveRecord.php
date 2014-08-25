@@ -7,6 +7,7 @@ namespace lagman\smart;
 
 use \yii\db\ActiveRecord as BaseActiveRecord;
 use yii\web\NotFoundHttpException;
+use yii\widgets\ActiveForm;
 
 class ActiveRecord extends BaseActiveRecord
 {
@@ -24,6 +25,18 @@ class ActiveRecord extends BaseActiveRecord
         if (!$model instanceof \yii\db\ActiveRecord)
             throw new NotFoundHttpException(404);
         return $model;
+    }
+
+    /**
+     * Performs ajax validation if needed
+     * @return array
+     */
+    public function performAjaxValidation()
+    {
+        if (\Yii::$app->request->isAjax && $this->load($_POST)) {
+            \Yii::$app->response->format = 'json';
+            return ActiveForm::validate($this);
+        }
     }
 
     public function tryInsert($runValidation = true, $attributes = null)
