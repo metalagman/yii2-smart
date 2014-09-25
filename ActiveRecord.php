@@ -39,9 +39,40 @@ class ActiveRecord extends BaseActiveRecord
         }
     }
 
-    public function tryInsert($runValidation = true, $attributes = null)
+    /**
+     * @param bool $runValidation
+     * @param null $attributeNames
+     * @return bool
+     */
+    public function trySave($runValidation = true, $attributeNames = null)
     {
-        if (!$this->insert($runValidation, $attributes))
+        if (!$this->save($runValidation, $attributeNames))
+            throw new \LogicException;
+        return true;
+    }
+
+    /**
+     * @param bool $runValidation
+     * @param null $attributeNames
+     * @return bool
+     * @throws \Exception
+     */
+    public function tryInsert($runValidation = true, $attributeNames = null)
+    {
+        if (!$this->insert($runValidation, $attributeNames))
+            throw new \LogicException;
+        return true;
+    }
+
+    /**
+     * @param bool $runValidation
+     * @param null $attributeNames
+     * @return bool
+     * @throws \Exception
+     */
+    public function tryUpdate($runValidation = true, $attributeNames = null)
+    {
+        if (!$this->update($runValidation, $attributeNames))
             throw new \LogicException;
         return true;
     }
