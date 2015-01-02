@@ -72,7 +72,7 @@ class ActiveRecord extends BaseActiveRecord
      */
     public function tryUpdate($runValidation = true, $attributeNames = null)
     {
-        if (!$this->update($runValidation, $attributeNames))
+        if ($this->update($runValidation, $attributeNames) === false)
             throw new \LogicException;
         return true;
     }
